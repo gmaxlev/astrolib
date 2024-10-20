@@ -116,6 +116,7 @@ export const buildTags = (config: AstroSeoProps): string => {
       unavailableAfter,
       noimageindex,
       notranslate,
+      maxVideoPreview
     } = config.robotsProps;
 
     if (nosnippet) robotsContent.push("nosnippet");
@@ -127,6 +128,7 @@ export const buildTags = (config: AstroSeoProps): string => {
       robotsContent.push(`unavailable_after:${unavailableAfter}`);
     if (noimageindex) robotsContent.push("noimageindex");
     if (notranslate) robotsContent.push("notranslate");
+    if (typeof maxVideoPreview === 'number') robotsContent.push(`max-video-preview:${maxVideoPreview}`);
   }
 
   if (robotsContent.length > 0) {
